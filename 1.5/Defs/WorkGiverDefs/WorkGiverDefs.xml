@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	
+	<WorkGiverDef>
+		<defName>RW_EmptyProcessor</defName>
+		<label>empty barrel</label>
+		<giverClass>RimWest.WorkGiver_EmptyProcessor</giverClass>
+		<workType>Hauling</workType>
+		<verb>take product</verb>
+		<gerund>taking product from</gerund>
+		<priorityInType>20</priorityInType>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+	</WorkGiverDef>
+	
+	<WorkGiverDef>
+		<defName>RW_FillProcessor</defName>
+		<label>fill barrel</label>
+		<giverClass>RimWest.WorkGiver_FillProcessor</giverClass>
+		<workType>Hauling</workType>
+		<verb>fill</verb>
+		<gerund>filling</gerund>
+		<priorityInType>19</priorityInType>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+	</WorkGiverDef>
+
+	<WorkGiverDef>
+		<defName>RW_MakeStew</defName>
+		<label>make stew</label>
+		<giverClass>WorkGiver_DoBill</giverClass>
+		<workType>Cooking</workType>
+		<verb>make stew</verb>
+		<gerund>making stew at</gerund>
+		<fixedBillGiverDefs>
+			<li>RW_StewPot</li>
+		</fixedBillGiverDefs>
+		<priorityInType>95</priorityInType>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+		<prioritizeSustains>true</prioritizeSustains>
+	</WorkGiverDef>
+
+</Defs>

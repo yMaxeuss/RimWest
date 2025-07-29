@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Combat Extended</li>
+		</mods>
+		
+	<match Class="PatchOperationSequence">
+    	<operations>
+			<li Class="PatchOperationReplace">
+				<xpath>
+					Defs/ThingDef[
+					defName="RW_Gun_CoachGun" or
+					defName="RW_Gun_SharpsRifle" or
+					defName="RW_Gun_WinchesterRifle"
+					]/tools
+				</xpath>
+				<value>
+					<tools>
+						<li Class="CombatExtended.ToolCE">
+							<label>stock</label>
+							<capacities>
+								<li>Blunt</li>
+							</capacities>
+							<power>8</power>
+							<cooldownTime>1.55</cooldownTime>
+							<chanceFactor>1.5</chanceFactor>
+							<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+							<linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+						</li>
+						<li Class="CombatExtended.ToolCE">
+							<label>barrel</label>
+							<capacities>
+								<li>Blunt</li>
+							</capacities>
+							<power>5</power>
+							<cooldownTime>2.02</cooldownTime>
+							<armorPenetrationBlunt>1.630</armorPenetrationBlunt>
+							<linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+						</li>
+						<li Class="CombatExtended.ToolCE">
+							<label>muzzle</label>
+							<capacities>
+								<li>Poke</li>
+							</capacities>
+							<power>8</power>
+							<cooldownTime>1.55</cooldownTime>
+							<armorPenetrationBlunt>2.755</armorPenetrationBlunt>
+							<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+						</li>
+					</tools>
+				</value>
+			</li>
+
+			<li Class="PatchOperationReplace">
+				<xpath>
+					Defs/ThingDef[
+					defName="RW_Gun_ColtNavyRevolver" or
+					defName="RW_Gun_ModelThree"
+					]/tools
+				</xpath>
+				<value>
+					<tools>
+						<li Class="CombatExtended.ToolCE">
+							<label>grip</label>
+							<capacities>
+								<li>Blunt</li>
+							</capacities>
+							<power>2</power>
+							<cooldownTime>1.54</cooldownTime>
+							<chanceFactor>1.5</chanceFactor>
+							<armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+							<linkedBodyPartsGroup>Grip</linkedBodyPartsGroup>
+						</li>
+						<li Class="CombatExtended.ToolCE">
+							<label>muzzle</label>
+							<capacities>
+								<li>Poke</li>
+							</capacities>
+							<power>2</power>
+							<cooldownTime>1.54</cooldownTime>
+							<armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+							<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+						</li>
+					</tools>
+				</value>
+			</li>
+
+			<li Class="PatchOperationReplace">
+				<xpath>
+					Defs/ThingDef[
+					defName="RW_ThrowingKnives"
+					]/tools
+				</xpath>
+				<value>
+					<tools>
+						<li Class="CombatExtended.ToolCE">
+							<label>handle</label>
+							<capacities>
+								<li>Blunt</li>
+							</capacities>
+							<power>3</power>
+							<cooldownTime>1.4</cooldownTime>							
+							<armorPenetrationBlunt>0.25</armorPenetrationBlunt>
+							<linkedBodyPartsGroup>Handle</linkedBodyPartsGroup>
+						</li>
+						<li Class="CombatExtended.ToolCE">
+							<label>blade</label>
+							<capacities>
+								<li>Cut</li>
+							</capacities>
+							<power>10</power>
+							<cooldownTime>0.88</cooldownTime>
+							<armorPenetrationBlunt>0.5</armorPenetrationBlunt>
+							<armorPenetrationSharp>0.48</armorPenetrationSharp>
+							<linkedBodyPartsGroup>Blade</linkedBodyPartsGroup>
+						</li>
+						<li Class="CombatExtended.ToolCE">
+							<label>point</label>
+							<capacities>
+								<li>Stab</li>
+							</capacities>
+							<power>15</power>
+							<cooldownTime>1.2</cooldownTime>
+							<chanceFactor>1.5</chanceFactor>
+							<armorPenetrationBlunt>0.8</armorPenetrationBlunt>
+							<armorPenetrationSharp>0.75</armorPenetrationSharp>
+							<linkedBodyPartsGroup>Point</linkedBodyPartsGroup>
+						</li>
+					</tools>
+				</value>
+			</li>
+                      <!-- Colt Navy Revolver  -->
+			<li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+				<defName>RW_Gun_ColtNavyRevolver</defName>
+				<statBases>
+					<Mass>1.2</Mass>
+					<RangedWeapon_Cooldown>0.5</RangedWeapon_Cooldown>
+					<SightsEfficiency>0.7</SightsEfficiency>
+					<ShotSpread>0.13</ShotSpread>
+					<SwayFactor>1.5</SwayFactor>
+					<Bulk>2.8</Bulk>
+				</statBases>
+				<Properties>
+					<recoilAmount>2.4</recoilAmount>
+					<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+					<hasStandardCommand>true</hasStandardCommand>
+					<defaultProjectile>Bullet_44Magnum_FMJ</defaultProjectile>
+					<warmupTime>0.5</warmupTime>
+					<range>12</range>
+					<soundCast>RW_ColtNavyRevolverShot</soundCast>
+					<soundCastTail>GunTail_Light</soundCastTail>
+					<muzzleFlashScale>9</muzzleFlashScale>
+				</Properties>
+				<AmmoUser>
+					<magazineSize>6</magazineSize>
+					<reloadOneAtATime>true</reloadOneAtATime>
+					<reloadTime>0.45</reloadTime>
+					<ammoSet>AmmoSet_44Magnum</ammoSet>
+				</AmmoUser>
+				<FireModes />
+				<weaponTags>
+					<li>CE_Sidearm</li>
+					<li>CE_AI_Pistol</li>
+					<li>CE_OneHandedWeapon</li>
+				</weaponTags>
+			</li>
+			          <!-- Model 3 Revolver  -->
+			<li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+				<defName>RW_Gun_ModelThree</defName>
+				<statBases>
+					<Mass>1.2</Mass>
+					<RangedWeapon_Cooldown>0.52</RangedWeapon_Cooldown>
+					<SightsEfficiency>0.7</SightsEfficiency>
+					<ShotSpread>0.15</ShotSpread>
+					<SwayFactor>1.5</SwayFactor>
+					<Bulk>2.8</Bulk>
+				</statBases>
+				<Properties>
+					<recoilAmount>2.3</recoilAmount>
+					<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+					<hasStandardCommand>true</hasStandardCommand>
+					<defaultProjectile>Bullet_44Magnum_FMJ</defaultProjectile>
+					<warmupTime>0.6</warmupTime>
+					<range>15</range>
+					<soundCast>RW_Model3Shot</soundCast>
+					<soundCastTail>GunTail_Light</soundCastTail>
+					<muzzleFlashScale>9</muzzleFlashScale>
+				</Properties>
+				<AmmoUser>
+					<magazineSize>6</magazineSize>
+					<reloadTime>0.55</reloadTime>
+					<reloadOneAtATime>true</reloadOneAtATime>
+					<ammoSet>AmmoSet_44Magnum</ammoSet>
+				</AmmoUser>
+				<FireModes />
+				<weaponTags>
+					<li>CE_Sidearm</li>
+					<li>CE_AI_Pistol</li>
+					<li>CE_OneHandedWeapon</li>
+				</weaponTags>
+			</li>
+			          <!-- Winchester Rifle  -->
+			<li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+				<defName>RW_Gun_WinchesterRifle</defName>
+				<statBases>
+					<Mass>3.2</Mass>
+					<RangedWeapon_Cooldown>0.8</RangedWeapon_Cooldown>
+					<SightsEfficiency>1.00</SightsEfficiency>
+					<ShotSpread>0.03</ShotSpread>
+					<SwayFactor>1.5</SwayFactor>
+					<Bulk>9.50</Bulk>
+				</statBases>
+				<Properties>
+					<recoilAmount>1.4</recoilAmount>
+					<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+					<hasStandardCommand>true</hasStandardCommand>
+					<defaultProjectile>Bullet_44Magnum_HV_FMJ</defaultProjectile>
+					<warmupTime>0.9</warmupTime>
+					<range>45</range>
+					<soundCast>RW_WinchesterRifleShot</soundCast>
+					<soundCastTail>GunTail_Medium</soundCastTail>
+					<muzzleFlashScale>9</muzzleFlashScale>
+				</Properties>
+				<AmmoUser>
+					<magazineSize>12</magazineSize>
+					<reloadOneAtATime>true</reloadOneAtATime>
+					<reloadTime>0.6</reloadTime>
+					<ammoSet>AmmoSet_44Magnum_HV</ammoSet>
+				</AmmoUser>
+				<FireModes>
+					<aiAimMode>AimedShot</aiAimMode>
+				</FireModes>
+				<weaponTags>
+					<li>CE_AI_Rifle</li>
+				</weaponTags>
+			</li>
+			         <!-- Sharps Rifle  -->
+			<li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+				<defName>RW_Gun_SharpsRifle</defName>
+				<statBases>
+					<Mass>4.0</Mass>
+					<RangedWeapon_Cooldown>1.2</RangedWeapon_Cooldown>
+					<SightsEfficiency>2.24</SightsEfficiency>
+					<ShotSpread>0.01</ShotSpread>
+					<SwayFactor>1.5</SwayFactor>
+					<Bulk>13</Bulk>
+				</statBases>
+				<Properties>
+					<recoilAmount>1.9</recoilAmount>
+					<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+					<hasStandardCommand>true</hasStandardCommand>
+					<defaultProjectile>Bullet_4570Gov_FMJ</defaultProjectile>
+					<warmupTime>1.3</warmupTime>
+					<range>75</range>
+					<soundCast>RW_SharpsRifleShot</soundCast>
+					<soundCastTail>GunTail_Heavy</soundCastTail>
+					<muzzleFlashScale>9</muzzleFlashScale>
+				</Properties>
+				<AmmoUser>
+					<magazineSize>1</magazineSize>
+					<reloadTime>2.2</reloadTime>
+					<AmmoGenPerMagOverride>4</AmmoGenPerMagOverride>
+					<ammoSet>AmmoSet_4570Gov</ammoSet>
+				</AmmoUser>
+				<FireModes>
+					<aiAimMode>AimedShot</aiAimMode>
+				</FireModes>
+				<weaponTags>
+					<li>CE_AI_Rifle</li>
+				</weaponTags>
+			</li>
+			            <!-- Coach Gun  -->
+			<li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+				<defName>RW_Gun_CoachGun</defName>
+				<statBases>
+					<Mass>3.4</Mass>
+					<RangedWeapon_Cooldown>0.2</RangedWeapon_Cooldown>
+					<SightsEfficiency>1</SightsEfficiency>
+					<ShotSpread>0.14</ShotSpread>
+					<SwayFactor>1.25</SwayFactor>
+					<Bulk>8.2</Bulk>
+				</statBases>
+				<Properties>
+					<recoilAmount>3</recoilAmount>
+					<verbClass>CombatExtended.Verb_ShootCE</verbClass>
+					<hasStandardCommand>true</hasStandardCommand>
+					<defaultProjectile>Bullet_12Gauge_Buck</defaultProjectile>
+					<warmupTime>1</warmupTime>
+					<range>16</range>
+					<soundCast>RW_CoachGunShot</soundCast>
+					<soundCastTail>GunTail_Heavy</soundCastTail>
+					<muzzleFlashScale>9</muzzleFlashScale>
+				</Properties>
+				<AmmoUser>
+					<magazineSize>2</magazineSize>
+					<reloadOneAtATime>true</reloadOneAtATime>
+					<reloadTime>0.95</reloadTime>
+					<ammoSet>AmmoSet_12Gauge</ammoSet>
+				</AmmoUser>
+				<FireModes />
+				<weaponTags>
+					<li>CE_AI_AssaultWeapon</li>
+				</weaponTags>
+			</li>
+			
+			              <!-- Throwing knives  -->
+			
+			   <!--  Projectile  -->
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName="RW_KnifeThrown"]/graphicData</xpath>
+				<value>
+					<graphicData>
+						<texPath>Things/Projectile/KnifeThrown/KnifeThrownC</texPath>
+						<graphicClass>Graphic_Single</graphicClass>
+					</graphicData>
+				</value>
+			</li>
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName="RW_KnifeThrown"]/projectile</xpath>
+				<value>
+					<projectile Class="CombatExtended.ProjectilePropertiesCE">
+						<speed>12</speed>
+						<flyOverhead>false</flyOverhead>
+						<damageDef>Cut</damageDef>
+						<damageAmountBase>16</damageAmountBase>
+						<armorPenetrationSharp>1.3</armorPenetrationSharp>
+						<armorPenetrationBlunt>0.8</armorPenetrationBlunt>
+					</projectile>
+				</value>
+			</li>
+			
+			 <!--  Weapon  -->
+			<li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+				<defName>RW_ThrowingKnives</defName>
+				<statBases>
+					<Mass>1.2</Mass>
+					<Bulk>2.8</Bulk>
+					<SightsEfficiency>1.0</SightsEfficiency>
+					<ShotSpread>1.5</ShotSpread>
+					<SwayFactor>2.5</SwayFactor>
+					<RangedWeapon_Cooldown>0.75</RangedWeapon_Cooldown>
+				</statBases>
+				<Properties>
+					<label>Throw knife</label>
+					<verbClass>CombatExtended.Verb_ShootCEOneUse</verbClass>
+					<hasStandardCommand>True</hasStandardCommand>
+					<defaultProjectile>RW_KnifeThrown</defaultProjectile>
+					<warmupTime>1.0</warmupTime>
+					<range>12</range>
+					<soundCast>Interact_BeatFire</soundCast>
+				</Properties>
+				<weaponTags>
+					<li>CE_OneHandedWeapon</li>
+				</weaponTags>
+			</li>
+
+			<li Class="PatchOperationAttributeSet">
+				<xpath>Defs/ThingDef[defName="RW_ThrowingKnives"]</xpath>
+				<attribute>ParentName</attribute>
+				<value>BaseWeapon</value>
+			</li>
+
+			<li Class="PatchOperationRemove">
+				<xpath>Defs/ThingDef[defName="RW_ThrowingKnives"]/costStuffCount</xpath>
+			</li>
+
+			<li Class="PatchOperationRemove">
+				<xpath>Defs/ThingDef[defName="RW_ThrowingKnives"]/stuffCategories</xpath>
+			</li>
+
+			<li Class="PatchOperationRemove">
+				<xpath>Defs/ThingDef[defName="RW_ThrowingKnives"]/recipeMaker</xpath>
+			</li>
+
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="RW_ThrowingKnives"]/graphicData</xpath>
+				<value>
+					<color>(105,105,105)</color>
+				</value>
+			</li>
+
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="RW_ThrowingKnives"]</xpath>
+				<value>
+					<thingClass>CombatExtended.AmmoThing</thingClass>
+					<stackLimit>75</stackLimit>
+					<resourceReadoutPriority>First</resourceReadoutPriority>
+				</value>
+			</li>
+
+			<li Class="PatchOperationAttributeSet">
+				<xpath>Defs/ThingDef[defName="RW_ThrowingKnives"]</xpath>
+				<attribute>Class</attribute>
+				<value>CombatExtended.AmmoDef</value>
+			</li>
+
+			<li Class="PatchOperationConditional">
+				<xpath>Defs/ThingDef[defName = "RW_ThrowingKnives"]/comps</xpath>
+				<nomatch Class="PatchOperationAdd">
+					<xpath>Defs/ThingDef[defName = "RW_ThrowingKnives"]</xpath>
+					<value>
+						<comps/>
+					</value>
+				</nomatch>
+			</li>
+			
+			             <!--  Lasso -->
+			
+			<!--  Projectile  -->
+
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName="RW_LassoThrown"]/projectile</xpath>
+				<value>
+					<projectile Class="CombatExtended.ProjectilePropertiesCE">
+						<speed>15</speed>
+						<flyOverhead>false</flyOverhead>
+						<damageDef>RW_LassoDamage</damageDef>
+						<damageAmountBase>1</damageAmountBase>
+						<armorPenetrationSharp>0.25</armorPenetrationSharp>
+						<armorPenetrationBlunt>0.20</armorPenetrationBlunt>
+					</projectile>
+				</value>
+			</li>
+
+			<!-- Weapon -->
+
+			<li Class="PatchOperationAdd">
+				<xpath>Defs/ThingDef[defName="RW_Lasso"]/statBases</xpath>
+				<value>
+					<Bulk>3</Bulk>
+					<WornBulk>2</WornBulk>
+				</value>
+			</li>
+
+			<li Class="PatchOperationReplace">
+				<xpath>Defs/ThingDef[defName="RW_Lasso"]/verbs</xpath>
+				<value>
+					<verbs>
+						<li Class="CombatExtended.VerbPropertiesCE">
+							<label>lasso</label>
+							<verbClass>CombatExtended.Verb_LaunchProjectileStaticCE</verbClass>
+							<hasStandardCommand>true</hasStandardCommand>
+							<onlyManualCast>True</onlyManualCast>
+							<warmupTime>1.2</warmupTime>
+							<noiseRadius>4</noiseRadius>
+							<range>12</range>
+							<soundCast>ThrowMolotovCocktail</soundCast>
+							<drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+							<targetParams>
+								<canTargetPawns>true</canTargetPawns>
+								<canTargetBuildings>false</canTargetBuildings>
+								<canTargetLocations>false</canTargetLocations>
+							</targetParams>
+							<defaultProjectile>RW_LassoThrown</defaultProjectile>
+							<rangedFireRulepack>Combat_RangedFire_Thrown</rangedFireRulepack>
+						</li>
+					</verbs>
+				</value>
+			</li>
+
+		   </operations>
+	    </match>
+    </Operation>
+	
+</Patch>

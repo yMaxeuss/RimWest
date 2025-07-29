@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	
+	<ThingDef ParentName="MedicineBase">
+		<defName>RW_MedicineSimple</defName>
+		<label>simple medicine</label>
+		<description>An old, weathered box containing a selection of basic remedies, herbal mixtures, and simple tools for treating injuries and illnesses.</description>
+		<possessionCount>3</possessionCount>
+		<graphicData>
+			<texPath>Things/Item/Resource/Medicine/MedicineSimple</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+			<drawSize>0.85</drawSize>
+		</graphicData>
+		<techLevel>Industrial</techLevel>
+		<statBases>
+			<MarketValue>14</MarketValue>
+			<Mass>0.50</Mass>
+			<Flammability>0.8</Flammability>
+			<MedicalPotency>0.85</MedicalPotency>
+			<MedicalQualityMax>0.85</MedicalQualityMax>
+			<DeteriorationRate>2</DeteriorationRate>
+			<WorkToMake>600</WorkToMake>
+		</statBases>
+		<costList>
+			<MedicineHerbal>2</MedicineHerbal>
+			<Cloth>5</Cloth>
+		</costList>
+		<recipeMaker>
+			<workSpeedStat>DrugSynthesisSpeed</workSpeedStat>
+			<workSkill>Intellectual</workSkill>
+			<recipeUsers>
+				<li>DrugLab</li>
+			</recipeUsers>
+			<researchPrerequisite>RW_MedicineSimpleProduction</researchPrerequisite>
+			<skillRequirements>
+				<Crafting>3</Crafting>
+				<Intellectual>3</Intellectual>
+			</skillRequirements>
+			<bulkRecipeCount>4</bulkRecipeCount>
+		</recipeMaker>
+		<allowedArchonexusCount>10</allowedArchonexusCount>
+	</ThingDef>
+
+</Defs>

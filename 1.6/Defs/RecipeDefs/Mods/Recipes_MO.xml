@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+	
+	<RecipeDef MayRequire="DankPyon.Medieval.Overhaul">
+		<defName>Convert_Fat_RW</defName>
+		<label>convert MO fat to RW</label>
+		<description>Turn Medieval Overhaul fat into RimWest fat.</description>
+		<recipeUsers>
+			<li>ElectricStove</li>
+			<li>FueledStove</li>
+			<li>Campfire</li>
+		</recipeUsers>
+		<jobString>Converting fat.</jobString>
+		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+		<workAmount>70</workAmount>
+		<requiredGiverWorkType>Cooking</requiredGiverWorkType>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_CookMeal</soundWorking>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>DankPyon_Fat</li>
+					</thingDefs>
+				</filter>
+				<count>15</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>DankPyon_Fat</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<RW_Fat>15</RW_Fat>
+		</products>
+	</RecipeDef>
+
+	<RecipeDef MayRequire="DankPyon.Medieval.Overhaul">
+		<defName>Convert_Fat_MO</defName>
+		<label>convert RW fat to MO</label>
+		<description>Turn RimWest fat into Medieval Overhaul fat.</description>
+		<recipeUsers>
+			<li>ElectricStove</li>
+			<li>FueledStove</li>
+			<li>Campfire</li>
+		</recipeUsers>
+		<jobString>Converting fat.</jobString>
+		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+		<workAmount>70</workAmount>
+		<requiredGiverWorkType>Cooking</requiredGiverWorkType>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_CookMeal</soundWorking>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>RW_Fat</li>
+					</thingDefs>
+				</filter>
+				<count>15</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>RW_Fat</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<DankPyon_Fat>15</DankPyon_Fat>
+		</products>
+	</RecipeDef>
+	
+</Defs>

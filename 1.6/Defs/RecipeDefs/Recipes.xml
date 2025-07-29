@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+      <!-- Meals -->
+  <RecipeDef ParentName="CookMealBase">
+		<defName>RW_CookStewSimple</defName>
+		<label>cook simple stew</label>
+		<description>Cook a straightforward stew from one ingredient.</description>
+		<jobString>Cooking simple stew.</jobString>
+		<workSpeedStat>CookSpeed</workSpeedStat>
+		<requiredGiverWorkType>Cooking</requiredGiverWorkType>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_CookMeal</soundWorking>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<ingredientValueGetterClass>IngredientValueGetter_Nutrition</ingredientValueGetterClass>
+		<ingredients>
+			<li>
+				<filter>
+					<categories>
+						<li>FoodRaw</li>
+					</categories>
+				</filter>
+				<count>3</count>
+			</li>
+		</ingredients>
+		<products>
+			<RW_StewSimple>8</RW_StewSimple>
+		</products>
+		<workSkill>Cooking</workSkill>
+		<displayPriority>100</displayPriority>
+	   <workAmount>2050</workAmount>
+  </RecipeDef>
+
+  <RecipeDef ParentName="CookMealFineBase">
+		<defName>RW_CookStewFine</defName>
+		<label>cook fine stew</label>
+		<description>Cook a somewhat complex stew from a combination of meat and plant ingredients.</description>
+		<jobString>Cooking fine stew.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<customSummary>protein</customSummary>
+					<categories>
+						<li>MeatRaw</li>
+						<li>AnimalProductRaw</li>
+					</categories>
+				</filter>
+				<count>1.5</count>
+			</li>
+			<li>
+				<filter>
+					<categories>
+						<li>PlantFoodRaw</li>
+					</categories>
+				</filter>
+				<count>1.5</count>
+			</li>
+		</ingredients>
+		<products>
+			<RW_StewFine>8</RW_StewFine>
+		</products>
+	  <skillRequirements>
+		  <Cooking>4</Cooking>
+	  </skillRequirements>
+		<displayPriority>200</displayPriority>
+	   <workAmount>2800</workAmount>
+  </RecipeDef>
+
+  <RecipeDef ParentName="CookMealLavishBase">
+		<defName>RW_CookStewLavish</defName>
+		<label>cook lavish stew</label>
+		<description>Cook a very complex stew from a combination of meat and plant ingredients. Much of the ingredients are wasted in order to create the best eating experience.</description>
+		<jobString>Cooking lavish stew.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<customSummary>protein</customSummary>
+					<categories>
+						<li>MeatRaw</li>
+						<li>AnimalProductRaw</li>
+					</categories>
+				</filter>
+				<count>3</count>
+			</li>
+			<li>
+				<filter>
+					<categories>
+						<li>PlantFoodRaw</li>
+					</categories>
+				</filter>
+				<count>3</count>
+			</li>
+		</ingredients>
+		<products>
+			<RW_StewLavish>8</RW_StewLavish>
+		</products>
+	  <skillRequirements>
+		  <Cooking>6</Cooking>
+	  </skillRequirements>
+		<displayPriority>300</displayPriority>
+	   <workAmount>3750</workAmount>
+  </RecipeDef>
+	
+	  <!-- Coffee -->
+	
+		<RecipeDef>
+		<defName>RW_Brew_Coffee</defName>
+		<label>brew coffee</label>
+		<description>Brew five cups of coffee</description>
+		<jobString>Brewing coffee.</jobString>
+		<workSpeedStat>DrugCookingSpeed</workSpeedStat>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_Brewing</soundWorking>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<recipeUsers>
+			<li>ElectricStove</li>
+			<li>FueledStove</li>
+			<li>RW_StewPot</li>
+		</recipeUsers>
+		<workAmount>500</workAmount>
+		<targetCountAdjustment>1</targetCountAdjustment>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>RW_RawCoffee</li>
+					</thingDefs>
+				</filter>
+				<count>25</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>RW_RawCoffee</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<RW_Coffee>5</RW_Coffee>
+		</products>
+		<workSkill>Cooking</workSkill>
+	</RecipeDef>
+
+	<RecipeDef>
+		<defName>RW_Brew_PremiumCoffee</defName>
+		<label>brew premium coffee</label>
+		<description>Brew five cups of premium coffee</description>
+		<jobString>Brewing coffee.</jobString>
+		<workSpeedStat>DrugCookingSpeed</workSpeedStat>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_Brewing</soundWorking>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<recipeUsers>
+			<li>ElectricStove</li>
+			<li>FueledStove</li>
+			<li>RW_StewPot</li>
+		</recipeUsers>
+		<workAmount>500</workAmount>
+		<targetCountAdjustment>1</targetCountAdjustment>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>RW_PremiumCoffeeBeans</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>RW_PremiumCoffeeBeans</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<RW_PremiumCoffee>5</RW_PremiumCoffee>
+		</products>
+		<workSkill>Cooking</workSkill>
+	</RecipeDef>
+	
+</Defs>

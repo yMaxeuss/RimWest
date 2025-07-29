@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+	
+		<!--  Throwing Knives -->
+	
+	<ThingDef ParentName="BaseMeleeWeapon_Sharp_Quality">
+		<defName>RW_ThrowingKnives</defName>
+		<label>throwing knife</label>
+		<description>Normal knives but designed for throwing, offering quick and accurate attacks with moderate damage.</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/WeaponRanged/ThrowingKnives</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<uiIconPath>Things/Item/Equipment/WeaponRanged/ThrowingKnives_MenuIcon</uiIconPath>
+		<uiIconScale>1.5</uiIconScale>
+		<techLevel>Neolithic</techLevel>
+		<soundInteract>Interact_BeatFire</soundInteract>
+		<statBases>
+			<WorkToMake>3600</WorkToMake>
+			<Mass>0.8</Mass>
+			<AccuracyTouch>0.75</AccuracyTouch>
+			<AccuracyShort>0.70</AccuracyShort>
+			<AccuracyMedium>0.55</AccuracyMedium>
+			<AccuracyLong>0.40</AccuracyLong>
+			<RangedWeapon_Cooldown>1</RangedWeapon_Cooldown>
+		</statBases>
+		<costStuffCount>40</costStuffCount>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<weaponTags>
+			<li>NeolithicRangedBasic</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>Ranged</li>
+		</weaponClasses>
+		<equippedAngleOffset>-65</equippedAngleOffset>
+		<recipeMaker>
+			<recipeUsers Inherit="False">
+				<li>FueledSmithy</li>
+				<li>ElectricSmithy</li>
+				<li>CraftingSpot</li>
+			</recipeUsers>
+			<skillRequirements>
+				<Crafting>3</Crafting>
+			</skillRequirements>
+		</recipeMaker>
+		<verbs>
+			<li>
+				<verbClass>Verb_LaunchProjectile</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>RW_KnifeThrown</defaultProjectile>
+				<warmupTime>1</warmupTime>
+				<range>16.9</range>
+				<soundCast>Interact_BeatFire</soundCast>
+				<rangedFireRulepack>Combat_RangedFire_Thrown</rangedFireRulepack>
+			</li>
+		</verbs>
+		<tools>
+			<li>
+				<label>handle</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>8</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+			<li>
+				<label>blade</label>
+				<capacities>
+					<li>Cut</li>
+				</capacities>
+				<power>11</power>
+				<cooldownTime>1.5</cooldownTime>
+			</li>
+			<li>
+				<label>point</label>
+				<capacities>
+					<li>Stab</li>
+				</capacities>
+				<power>12</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+	<ThingDef ParentName="BaseProjectileNeolithic">
+		<defName>RW_KnifeThrown</defName>
+		<label>throwing knife</label>
+		<graphicData>
+			<texPath>Things/Projectile/KnifeThrown</texPath>
+			<graphicClass>Graphic_Flicker</graphicClass>
+		</graphicData>
+		<projectile>
+			<arcHeightFactor>0.3</arcHeightFactor>
+			<flyOverhead>false</flyOverhead>
+			<damageDef>Cut</damageDef>
+			<damageAmountBase>12</damageAmountBase>
+			<armorPenetrationBase>0.15</armorPenetrationBase>
+			<stoppingPower>1</stoppingPower>
+			<speed>32</speed>
+		</projectile>
+	</ThingDef>
+
+	<!--  Lasso  -->
+
+	<ThingDef ParentName="ApparelNoQualityBase">
+		<defName>RW_Lasso</defName>
+		<label>lasso</label>
+		<description>A sturdy rope used for capturing and restraining animals or hostile targets.</description>
+		<graphicData>
+			<texPath>Things/Item/Equipment/WeaponRanged/Lasso</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<uiIconScale>1.3</uiIconScale>
+		<techLevel>Industrial</techLevel>
+		<recipeMaker>
+			<unfinishedThingDef>UnfinishedApparel</unfinishedThingDef>
+			<researchPrerequisite>RW_Lasso</researchPrerequisite>
+			<recipeUsers>
+				<li>CraftingSpot</li>
+				<li>ElectricSmithy</li>
+				<li>FueledSmithy</li>
+			</recipeUsers>
+			<useIngredientsForColor>true</useIngredientsForColor>
+			<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+			<workSkill>Crafting</workSkill>
+			<effectWorking>Smith</effectWorking>
+			<soundWorking>Recipe_Smith</soundWorking>
+			<skillRequirements>
+				<Crafting>5</Crafting>
+			</skillRequirements>
+		</recipeMaker>
+		<tickerType>Normal</tickerType>
+		<costStuffCount>60</costStuffCount>
+		<stuffCategories>
+			<li>Fabric</li>
+			<li>Leathery</li>
+		</stuffCategories>
+		<statBases>
+			<WorkToMake>1800</WorkToMake>
+			<Mass>1.5</Mass>
+			<Flammability>0.8</Flammability>
+			<EquipDelay>2</EquipDelay>
+		</statBases>
+		<thingCategories>
+			<li>ApparelUtility</li>
+		</thingCategories>
+		<apparel>
+			<careIfWornByCorpse>false</careIfWornByCorpse>
+			<careIfDamaged>false</careIfDamaged>
+			<wearPerDay>0</wearPerDay>
+			<bodyPartGroups>
+				<li>Waist</li>
+			</bodyPartGroups>
+			<layers>
+				<li>Belt</li>
+			</layers>
+	 	</apparel>
+		<generateAllowChance>0.15</generateAllowChance>
+		<comps>
+			<li Class="CompProperties_ApparelReloadable">
+				<maxCharges>3</maxCharges>
+				<destroyOnEmpty>true</destroyOnEmpty>
+				<soundReload>Interact_BeatFire</soundReload>
+				<hotKey>Misc4</hotKey>
+				<chargeNoun>lasso</chargeNoun>
+				<displayGizmoWhileUndrafted>false</displayGizmoWhileUndrafted>
+			</li>
+		</comps>
+		<verbs>
+			<li>
+				<label>lasso</label>
+				<verbClass>Verb_LaunchProjectileStatic</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<onlyManualCast>True</onlyManualCast>
+				<range>14.9</range>
+				<warmupTime>2</warmupTime>
+				<noiseRadius>4</noiseRadius>
+				<soundCast>ThrowMolotovCocktail</soundCast>
+				<drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+				<targetParams>
+					<canTargetPawns>true</canTargetPawns>
+					<canTargetBuildings>false</canTargetBuildings>
+					<canTargetLocations>false</canTargetLocations>
+				</targetParams>
+				<defaultProjectile>RW_LassoThrown</defaultProjectile>
+				<rangedFireRulepack>Combat_RangedFire_Thrown</rangedFireRulepack>
+			</li>
+		</verbs>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseProjectileNeolithic">
+		<defName>RW_LassoThrown</defName>
+		<label>lasso loop</label>
+		<graphicData>
+			<texPath>Things/Item/Equipment/WeaponRanged/LassoThrown</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<flyOverhead>false</flyOverhead>
+			<spinRate>3</spinRate>
+			<damageDef>RW_LassoDamage</damageDef>
+			<damageAmountBase>1</damageAmountBase>
+			<stoppingPower>5</stoppingPower>
+			<armorPenetrationBase>0.14</armorPenetrationBase>
+			<speed>30</speed>
+		</projectile>
+	</ThingDef>
+
+	<HediffDef>
+		<defName>RW_Lassoed</defName>
+		<label>lassoed</label>
+		<description>This pawn has been lassoed and is trying to get free. You can untie them simply by tending (no medicine needed).</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<disappearsAfterTicks>1200~4500</disappearsAfterTicks>
+				<showRemainingTime>true</showRemainingTime>
+			</li>
+			<li Class="HediffCompProperties_TendDuration">
+				<showTendQuality>false</showTendQuality>
+				<tendAllAtOnce>true</tendAllAtOnce>
+			</li>
+			<li Class="RimWest.HediffCompProperties_SingleTend"/>
+		</comps>
+		<stages>
+			<li>
+				<label>struggling to escape</label>
+				<capMods>
+					<li>
+						<capacity>Manipulation</capacity>
+						<offset>-0.85</offset>
+					</li>
+					<li>
+						<capacity>Moving</capacity>
+						<offset>-0.85</offset>
+					</li>
+
+				</capMods>
+			</li>
+		</stages>
+		<cureAllAtOnceIfCuredByItem>true</cureAllAtOnceIfCuredByItem>
+		<tendable>true</tendable>
+	</HediffDef>
+
+	<DamageDef>
+		<defName>RW_LassoDamage</defName>
+		<label>lasso</label>
+		<workerClass>DamageWorker_AddGlobal</workerClass>
+		<deathMessage>{0} has been strangled with a lasso.</deathMessage>
+		<hediff>RW_Lassoed</hediff>
+	</DamageDef>
+	
+</Defs>

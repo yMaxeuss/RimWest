@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+                        <!-- Fat  -->
+
+	<Operation Class="PatchOperationAddModExtension">
+				<xpath>Defs/ThingDef[@Name="AnimalThingBase"]</xpath>
+				<value>
+						<li Class="RimWest.Butcher_Extension">
+							<customButcherProducts>
+								<RW_Fat>20</RW_Fat>
+							</customButcherProducts>
+						</li>
+				</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAddModExtension">
+				<xpath>Defs/ThingDef[defName="Human"]</xpath>
+				<value>
+						<li Class="RimWest.Butcher_Extension">
+							<customButcherProducts>
+								<RW_Fat>20</RW_Fat>
+							</customButcherProducts>
+						</li>
+				</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="Campfire"]/comps/li[@Class = "CompProperties_Refuelable"]/fuelFilter/thingDefs</xpath>
+		<value>
+			<li>RW_Fat</li>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[defName="Campfire"]/comps/li[@Class = "CompProperties_Refuelable"]/fuelConsumptionRate</xpath>
+		<value>
+			<fuelConsumptionRate>5</fuelConsumptionRate>
+		</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="FueledStove"]/comps/li[@Class = "CompProperties_Refuelable"]/fuelFilter/thingDefs</xpath>
+		<value>
+			<li>RW_Fat</li>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[@Name="TorchBase"]/comps/li[@Class = "CompProperties_Refuelable"]/fuelFilter/thingDefs</xpath>
+		<value>
+			<li>RW_Fat</li>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="TorchWallLamp"]/comps/li[@Class = "CompProperties_Refuelable"]/fuelFilter/thingDefs</xpath>
+		<value>
+			<li>RW_Fat</li>
+		</value>
+	</Operation>
+
+                  <!-- Premium Coffee  -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TraderKindDef[defName="Caravan_Outlander_BulkGoods"]/stockGenerators</xpath>
+		<value>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>RW_PremiumCoffeeBeans</thingDef>
+				<countRange>-4~10</countRange>
+			</li>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TraderKindDef[defName="Caravan_Outlander_Exotic"]/stockGenerators</xpath>
+		<value>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>RW_PremiumCoffeeBeans</thingDef>
+				<countRange>1~8</countRange>
+			</li>
+		</value>
+	</Operation>
+
+	                  <!-- Simple Medicine -->
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/InventoryStockGroupDef[defName="Medicine"]/thingDefs</xpath>
+		<value>
+			<thingDefs>
+			<li>MedicineHerbal</li>
+			<li>RW_MedicineSimple</li>
+			<li>MedicineIndustrial</li>
+			<li>MedicineUltratech</li>
+			</thingDefs>	
+		</value>
+	</Operation>
+
+	                <!-- Fermenting Barrel-->
+   
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ThingDef[defName = "FermentingBarrel"]/designationCategory</xpath>
+		<match Class="PatchOperationRemove">
+			<xpath>Defs/ThingDef[defName = "FermentingBarrel"]/designationCategory</xpath>
+		</match>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/WorkGiverDef[defName = "TakeBeerOutOfFermentingBarrel" or defName = "FillFermentingBarrel"]/giverClass</xpath>
+		<value>
+			<giverClass>WorkGiver_DoBill</giverClass>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationRemove">
+		<xpath>Defs/ThingDef[defName = "FermentingBarrel"]/researchPrerequisites</xpath>
+	</Operation>
+
+</Patch>

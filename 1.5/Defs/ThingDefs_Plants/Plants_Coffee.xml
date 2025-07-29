@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<ThingDef ParentName="PlantBase" Name="CoffeeBase" Abstract="True">
+		<graphicData>
+			<texPath>Things/Plants/Coffee_Plant/CoffeePlant/RW_CoffeePlant</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<selectable>true</selectable>
+		<pathCost>14</pathCost>
+		<statBases>
+			<MaxHitPoints>85</MaxHitPoints>
+			<Nutrition>0.1</Nutrition>
+		</statBases>
+		<plant>
+			<fertilityMin>1</fertilityMin>
+			<immatureGraphicPath>Things/Plants/Coffee_Plant/CoffeePlant/RW_CoffeePlantInmature</immatureGraphicPath>
+			<growDays>10</growDays>
+			<dieIfLeafless>true</dieIfLeafless>
+			<harvestTag>Standard</harvestTag>
+			<harvestedThingDef>RW_RawCoffee</harvestedThingDef>
+			<harvestYield>20</harvestYield>
+			<topWindExposure>0.1</topWindExposure>
+			<wildOrder>2</wildOrder>
+			<visualSizeRange>0.3~1.2</visualSizeRange>
+		</plant>
+	</ThingDef>
+
+	<ThingDef ParentName="CoffeeBase">
+		<defName>RW_Plant_Coffee</defName>
+		<label>coffee plant</label>
+		<description>A coffee plant that produces beans which can be harvested and brewed into coffee.</description>
+		<plant>
+			<sowMinSkill>4</sowMinSkill>
+			<sowTags>
+				<li>Ground</li>
+			</sowTags>
+		</plant>
+	</ThingDef>
+
+	<ThingDef ParentName="RoughPlantBase">
+		<defName>RW_RawCoffee</defName>
+		<label>coffee beans</label>
+		<description>Fresh coffee beans. When roasted and brewed they make a refreshing coffee that boosts energy.</description>
+		<graphicData>
+			<texPath>Things/Plants/Coffee_Plant/RW_RawCoffee</texPath>
+		</graphicData>
+		<statBases>
+			<MarketValue>1.2</MarketValue>
+			<Mass>0.027</Mass>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Rottable">
+				<daysToRotStart>60</daysToRotStart>
+				<rotDestroys>true</rotDestroys>
+			</li>
+		</comps>
+		<thingCategories>
+			<li>PlantMatter</li>
+		</thingCategories>
+		<ingestible>
+			<preferability>DesperateOnly</preferability>
+		</ingestible>
+	</ThingDef>
+
+	<ThingDef ParentName="RoughPlantBase">
+		<defName>RW_PremiumCoffeeBeans</defName>
+		<label>premium coffee beans</label>
+		<description>A sealed bag of rare, hand-roasted coffee beans, known for their rich, bold flavor and unique aroma, sourced exclusively from trade caravans. It can be used to brew an exceptional cup of coffee.</description>
+		<category>Item</category>
+		<graphicData>
+			<texPath>Things/Item/Drug/Coffee/PremiumCoffee_Bag</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<soundInteract>Standard_Drop</soundInteract>
+		<soundDrop>Standard_Drop</soundDrop>
+		<statBases>
+			<MaxHitPoints>60</MaxHitPoints>
+			<MarketValue>120</MarketValue>
+			<Mass>0.03</Mass>
+			<Flammability>1.0</Flammability>
+			<DeteriorationRate>4</DeteriorationRate>
+		</statBases>
+		<thingCategories>
+            <li>PlantMatter</li>
+       </thingCategories>
+		<ingestible>
+			<preferability>DesperateOnly</preferability>
+		</ingestible>
+	</ThingDef>
+	
+</Defs>

@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	
+                    <!--   Wine Must   -->
+<ThingDef ParentName="ResourceBase">
+	<defName>RW_WineMust</defName>
+	<label>wine must</label>
+	<description>A thick, pulpy mixture of crushed grapes, needs to be fermented before it becomes drinkable wine.</description>
+	<graphicData>
+		<texPath>Things/Item/Drug/Musts/WineMust</texPath>
+		<graphicClass>Graphic_Single</graphicClass>
+	</graphicData>
+	<rotatable>false</rotatable>
+	<stackLimit>25</stackLimit>
+	<tradeability>None</tradeability>
+	<thingCategories>
+		<li>Manufactured</li>
+	</thingCategories>
+	<statBases>
+		<DeteriorationRate>1.0</DeteriorationRate>
+		<MarketValue>2.5</MarketValue>
+		<Mass>0.8</Mass>
+		<Flammability>0.2</Flammability>
+		<MaxHitPoints>60</MaxHitPoints>
+	</statBases>
+	<tickerType>Rare</tickerType>
+	<comps>
+		<li Class="CompProperties_Rottable">
+			<daysToRotStart>5</daysToRotStart>
+			<rotDestroys>true</rotDestroys>
+		</li>
+	</comps>
+</ThingDef>
+	
+         	<!--   Whiskey Mash  -->
+	<ThingDef ParentName="ResourceBase">
+		<defName>RW_WhiskeyMash</defName>
+		<label>whiskey mash</label>
+		<description>A blend of crushed grains and water, needs to be fermanted before it becomes drinkable whiskey.</description>
+		<graphicData>
+			<texPath>Things/Item/Drug/Musts/WhiskeyMash</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<healthAffectsPrice>false</healthAffectsPrice>
+		<rotatable>false</rotatable>
+		<stackLimit>25</stackLimit>
+		<thingCategories>
+			<li>Manufactured</li>
+		</thingCategories>
+		<tradeability>None</tradeability>
+		<statBases>
+			<DeteriorationRate>1.0</DeteriorationRate>
+			<MarketValue>2.5</MarketValue>
+			<Mass>0.8</Mass>
+			<Flammability>0.2</Flammability>
+			<MaxHitPoints>60</MaxHitPoints>
+		</statBases>
+		<tickerType>Rare</tickerType>
+		<comps>
+			<li Class="CompProperties_Rottable">
+				<daysToRotStart>5</daysToRotStart>
+				<rotDestroys>true</rotDestroys>
+			</li>
+		</comps>
+	</ThingDef>
+
+	      <!-- Tequila Must-->
+	<ThingDef ParentName="ResourceBase">
+		<defName>RW_TequilaMash</defName>
+		<label>tequila mash</label>
+		<description>A thick, fragrant mash made from the agave plant, needs to be fermanted before it becomes drinkable tequila.</description>
+		<graphicData>
+			<texPath>Things/Item/Drug/Musts/TequilaMash</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<healthAffectsPrice>false</healthAffectsPrice>
+		<rotatable>false</rotatable>
+		<stackLimit>25</stackLimit>
+		<thingCategories>
+			<li>Manufactured</li>
+		</thingCategories>
+		<tradeability>None</tradeability>
+		<statBases>
+			<DeteriorationRate>1.0</DeteriorationRate>
+			<MarketValue>2.5</MarketValue>
+			<Mass>0.8</Mass>
+			<Flammability>0.2</Flammability>
+			<MaxHitPoints>60</MaxHitPoints>
+		</statBases>
+		<tickerType>Rare</tickerType>
+		<comps>
+			<li Class="CompProperties_Rottable">
+				<daysToRotStart>5</daysToRotStart>
+				<rotDestroys>true</rotDestroys>
+			</li>
+		</comps>
+	</ThingDef>
+	
+            <!--  Recipes  -->
+<RecipeDef>
+	<defName>RW_MakeWineMust</defName>
+	<label>make wine must</label>
+	<description>Make wine must from grapes.</description>
+	<jobString>Making wine must.</jobString>
+	<effectWorking>Cook</effectWorking>
+	<soundWorking>Recipe_Brewing</soundWorking>
+	<workSkill>Cooking</workSkill>
+	<workSpeedStat>DrugCookingSpeed</workSpeedStat>
+	<workAmount>1000</workAmount>
+	<recipeUsers>
+		<li>Brewery</li>
+	</recipeUsers>
+	<ingredients>
+		<li>
+			<filter>
+				<thingDefs>
+					<li>RW_RawGrape</li>
+				</thingDefs>
+			</filter>
+			<count>25</count>
+		</li>
+	</ingredients>
+	<fixedIngredientFilter>
+			<thingDefs>
+				<li>RW_RawGrape</li>
+			</thingDefs>
+	</fixedIngredientFilter>
+	<products>
+		<RW_WineMust>5</RW_WineMust>
+	</products>
+</RecipeDef>
+
+<RecipeDef>
+		<defName>RW_MakeWhiskeyMash</defName>
+		<label>make whiskey mash</label>
+		<description>Make whiskey mash from grains.</description>
+		<jobString>Making whiskey mash.</jobString>
+		<workSpeedStat>DrugCookingSpeed</workSpeedStat>
+		<workSkill>Cooking</workSkill>
+		<effectWorking>Cook</effectWorking>
+		<workAmount>1000</workAmount>
+		<soundWorking>Recipe_Brewing</soundWorking>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<recipeUsers>
+			<li>Brewery</li>
+		</recipeUsers>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>RawCorn</li>
+					</thingDefs>
+				</filter>
+				<count>25</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>RawCorn</li>
+			</thingDefs>
+    	</fixedIngredientFilter>
+		<products>
+			<RW_WhiskeyMash>5</RW_WhiskeyMash>
+		</products>
+</RecipeDef>
+	
+<RecipeDef>
+		<defName>RW_MakeTequilaMash</defName>
+		<label>make tequila mash</label>
+		<description>Make tequila mash from agave plant.</description>
+		<jobString>Making tequila mash.</jobString>
+		<workSpeedStat>DrugCookingSpeed</workSpeedStat>
+		<workSkill>Cooking</workSkill>
+		<effectWorking>Cook</effectWorking>
+		<workAmount>1000</workAmount>
+		<soundWorking>Recipe_Brewing</soundWorking>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<recipeUsers>
+			<li>Brewery</li>
+		</recipeUsers>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>RawAgave</li>
+					</thingDefs>
+				</filter>
+				<count>25</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>RawAgave</li>
+			</thingDefs>
+    	</fixedIngredientFilter>
+		<products>
+			<RW_TequilaMash>5</RW_TequilaMash>
+		</products>
+	</RecipeDef>
+</Defs>

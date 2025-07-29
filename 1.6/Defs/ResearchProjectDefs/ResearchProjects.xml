@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	<ResearchProjectDef>
+	<defName>RW_Lasso</defName>
+	<label>Lasso</label>
+	<description>Craft lasso, can be used for capturing animals or people.</description>
+	<baseCost>600</baseCost>
+	<techLevel>Medieval</techLevel>
+	<researchViewX>2.00</researchViewX>
+	<researchViewY>0.70</researchViewY>
+	</ResearchProjectDef>
+
+    <ResearchProjectDef>
+	<defName>RW_MedicineSimpleProduction</defName>
+	<label>simple medicine production</label>
+	<description>Produce simple medicine with herbal medicine and cloth.</description>
+	<baseCost>800</baseCost>
+	<techLevel>Industrial</techLevel>
+	<prerequisites>
+		<li>DrugProduction</li>
+	</prerequisites>
+	<researchViewX>5.00</researchViewX>
+	<researchViewY>0.0</researchViewY>
+	</ResearchProjectDef>
+</Defs>

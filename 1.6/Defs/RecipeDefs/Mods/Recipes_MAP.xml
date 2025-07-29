@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+	
+	<RecipeDef MayRequire="Romyashi.MoreAnimalProducts">
+		<defName>ConvertFat_RW</defName>
+		<label>convert MAP fat to RW</label>
+		<description>Turn More Animal Products fat into RimWest fat.</description>
+		<recipeUsers>
+			<li>ElectricStove</li>
+			<li>FueledStove</li>
+			<li>Campfire</li>
+		</recipeUsers>
+		<jobString>Converting fat.</jobString>
+		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+		<workAmount>70</workAmount>
+		<requiredGiverWorkType>Cooking</requiredGiverWorkType>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_CookMeal</soundWorking>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Romy_Fat</li>
+					</thingDefs>
+				</filter>
+				<count>15</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Romy_Fat</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<RW_Fat>15</RW_Fat>
+		</products>
+	</RecipeDef>
+
+	<RecipeDef MayRequire="Romyashi.MoreAnimalProducts">
+		<defName>ConvertFat_MAP</defName>
+		<label>convert RW fat to MAP</label>
+		<description>Turn RimWest fat into More Animal Products fat.</description>
+		<recipeUsers>
+			<li>ElectricStove</li>
+			<li>FueledStove</li>
+			<li>Campfire</li>
+		</recipeUsers>
+		<jobString>Converting fat.</jobString>
+		<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+		<workAmount>70</workAmount>
+		<requiredGiverWorkType>Cooking</requiredGiverWorkType>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_CookMeal</soundWorking>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>RW_Fat</li>
+					</thingDefs>
+				</filter>
+				<count>15</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>RW_Fat</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<Romy_Fat>15</Romy_Fat>
+		</products>
+	</RecipeDef>
+	
+</Defs>

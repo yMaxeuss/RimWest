@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>RimCuisine 2 Core (Continued)</li>
+		</mods>
+
+		
+		<match Class="PatchOperationSequence">
+			<operations>
+
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/RecipeDef[defName = "RW_Brew_Coffee"]/fixedIngredientFilter/thingDefs</xpath>
+					<value>
+						<li>RC2_RawCoffeeBeans</li>
+					</value>
+				</li>
+
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/RecipeDef[defName = "RW_Brew_Coffee"]/ingredients/li/filter/thingDefs</xpath>
+					<value>
+						<li>RC2_RawCoffeeBeans</li>
+					</value>
+				</li>
+				
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/RecipeDef[defName = "RW_MakeWineMust"]/fixedIngredientFilter/thingDefs</xpath>
+					<value>
+						<li>RC2_RawGrapes</li>
+					</value>
+				</li>
+
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/RecipeDef[defName = "RW_MakeWineMust"]/ingredients/li/filter/thingDefs</xpath>
+					<value>
+						<li>RC2_RawGrapes</li>
+					</value>
+				</li>
+				
+			</operations>
+		</match>
+	</Operation>
+	
+</Patch>

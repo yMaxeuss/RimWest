@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	
+             <!-- Coffee  -->
+	
+		 <ThingDef ParentName="DrugBase">
+		<defName>RW_Coffee</defName>
+		<label>coffee</label>
+		<description>A cup of coffee brewed from freshly ground beans, offering a rich and energizing drink. It boosts alertness and productivity by a small percent.</description>
+		 <descriptionHyperlinks>
+			 <HediffDef>RW_CoffeeHigh</HediffDef>
+			 <HediffDef>RW_CaffeineTolerance</HediffDef>
+			 <HediffDef>RW_CaffeineAddiction</HediffDef>
+		 </descriptionHyperlinks>
+	   <graphicData>
+			<texPath>Things/Item/Drug/Coffee/Coffee</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<tickerType>Rare</tickerType>	
+		<rotatable>false</rotatable>
+		<stackLimit>50</stackLimit>
+	   <tradeability>Sellable</tradeability>
+		<statBases>
+			<DeteriorationRate>0.5</DeteriorationRate>
+			<MarketValue>8</MarketValue>
+			<Mass>0.3</Mass>
+			<Flammability>0.5</Flammability>
+			<Nutrition>0.1</Nutrition>
+		</statBases>
+		<ingestible>
+			<foodType>Fluid, Processed, Liquor</foodType>
+			<joyKind>Chemical</joyKind>
+			<joy>0.10</joy>
+			<nurseable>true</nurseable>
+			<drugCategory>Social</drugCategory>
+			<ingestSound>Ingest_Drink</ingestSound>
+			<tasteThought>RW_DrankCoffee</tasteThought>
+			<ingestHoldOffsetStanding>
+				<northDefault>
+					<offset>(0.18,0,0)</offset>
+				</northDefault>
+			</ingestHoldOffsetStanding>
+			<ingestHoldUsesTable>false</ingestHoldUsesTable>
+			<ingestCommandString>Drink {0}</ingestCommandString>
+			<ingestReportString>Drinking {0}.</ingestReportString>		
+			<outcomeDoers>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>RW_CoffeeHigh</hediffDef>
+					<severity>1</severity>
+					<toleranceChemical>RW_Caffeine</toleranceChemical>
+				    <doToGeneratedPawnIfAddicted>false</doToGeneratedPawnIfAddicted>
+				</li>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>RW_CaffeineTolerance</hediffDef>
+					<severity>0.008</severity>
+					<divideByBodySize>true</divideByBodySize>
+					<multiplyByGeneToleranceFactors>true</multiplyByGeneToleranceFactors>
+				</li> 
+			</outcomeDoers>
+		</ingestible>
+	    <techLevel>Neolithic</techLevel>
+		<comps>
+			<li Class="CompProperties_Drug">
+				<chemical>RW_Caffeine</chemical>
+				<addictiveness>0.005</addictiveness>
+				<minToleranceToAddict>0.25</minToleranceToAddict>
+				<existingAddictionSeverityOffset>0.20</existingAddictionSeverityOffset>
+				<needLevelOffset>0.9</needLevelOffset>
+				<listOrder>10</listOrder>
+			</li>
+		</comps>	
+	</ThingDef>
+	
+	<HediffDef>
+    <defName>RW_CoffeeHigh</defName>
+    <hediffClass>HediffWithComps</hediffClass>
+    <label>coffee high</label>
+    <description>The caffeine provides a boost of energy and mental clarity, slightly increasing the pawn's focus and work efficiency. For a limited time, pawns feel more awake, alert, and productive</description>
+    <labelNoun>effects of coffee</labelNoun>
+    <defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+    <maxSeverity>1.0</maxSeverity>
+    <isBad>false</isBad>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-4</severityPerDay>
+        <showHoursToRecover>true</showHoursToRecover>
+      </li>
+	<li Class="HediffCompProperties_RemoveIfOtherHediff">
+		   <hediffs>
+			   <li>RW_PremiumCoffeeHigh</li>
+		   </hediffs>
+	</li>
+    </comps>
+      <stages>
+        <li>
+          <label>buzzed</label>
+			<statFactors>
+				<RestFallRateFactor>0.9</RestFallRateFactor>
+			</statFactors>
+            <capMods>
+              <li>
+                <capacity>Consciousness</capacity>
+                <offset>0.1</offset>
+              </li>
+            </capMods>
+          <statOffsets>
+            <WorkSpeedGlobal>0.05</WorkSpeedGlobal>
+          </statOffsets>
+        </li>
+		  
+        <li>
+          <minSeverity>0.5</minSeverity>
+          <label>energized</label>
+			<statFactors>
+				<RestFallRateFactor>0.8</RestFallRateFactor>
+			</statFactors>
+            <capMods>
+              <li>
+                <capacity>Consciousness</capacity>
+                <offset>0.1</offset>
+              </li>
+            </capMods>
+          <statOffsets>
+            <WorkSpeedGlobal>0.1</WorkSpeedGlobal>
+          </statOffsets>
+        </li>
+      </stages>
+  </HediffDef>
+
+	<ThoughtDef>
+		<defName>RW_DrankCoffee</defName>
+		<durationDays>0.5</durationDays>
+		<stackLimit>1</stackLimit>
+		<stages>
+			<li>
+				<label>drank coffee</label>
+				<description>I drank some coffee. I feel more energized now!</description>
+				<baseMoodEffect>3</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+	
+	          <!-- Premium Coffee -->
+	
+   <ThingDef ParentName="DrugBase">
+		<defName>RW_PremiumCoffee</defName>
+		<label>premium coffee</label>
+		<description>A rich, aromatic brew crafted from the finest coffee beans, carefully ground and prepared to perfection. This high-quality coffee enhances mood, focus, and productivity, making it a valuable resource for any colony seeking to maximize efficiency and morale.</description>
+	   <descriptionHyperlinks>
+		   <HediffDef>RW_PremiumCoffeeHigh</HediffDef>
+		   <HediffDef>RW_CaffeineTolerance</HediffDef>
+		   <HediffDef>RW_CaffeineAddiction</HediffDef>
+	   </descriptionHyperlinks>
+	   <graphicData>
+			<texPath>Things/Item/Drug/Coffee/PremiumCoffee</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<tickerType>Rare</tickerType>	
+		<rotatable>false</rotatable>
+		<stackLimit>50</stackLimit>
+	   <tradeability>Sellable</tradeability>
+		<statBases>
+			<DeteriorationRate>0.5</DeteriorationRate>
+			<MarketValue>30</MarketValue>
+			<Mass>0.3</Mass>
+			<Flammability>0.5</Flammability>
+			<Nutrition>0.1</Nutrition>
+		</statBases>
+		<ingestible>
+			<foodType>Fluid, Processed, Liquor</foodType>
+			<joyKind>Chemical</joyKind>
+			<joy>0.4</joy>
+			<nurseable>true</nurseable>
+			<drugCategory>Social</drugCategory>
+			<ingestSound>Ingest_Drink</ingestSound>
+			<tasteThought>RW_DrankPremiumCoffee</tasteThought>
+			<ingestHoldOffsetStanding>
+				<northDefault>
+					<offset>(0.18,0,0)</offset>
+				</northDefault>
+			</ingestHoldOffsetStanding>
+			<ingestHoldUsesTable>false</ingestHoldUsesTable>
+			<ingestCommandString>Drink {0}</ingestCommandString>
+			<ingestReportString>Drinking {0}.</ingestReportString>		
+			<outcomeDoers>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>RW_PremiumCoffeeHigh</hediffDef>
+					<severity>1</severity>
+					<toleranceChemical>RW_Caffeine</toleranceChemical>
+				    <doToGeneratedPawnIfAddicted>false</doToGeneratedPawnIfAddicted>
+				</li>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>RW_CaffeineTolerance</hediffDef>
+					<severity>0.008</severity>
+					<divideByBodySize>true</divideByBodySize>
+					<multiplyByGeneToleranceFactors>true</multiplyByGeneToleranceFactors>
+				</li> 
+			</outcomeDoers>
+		</ingestible>	
+		<techLevel>Medieval</techLevel>
+		<comps>
+			<li Class="CompProperties_Drug">
+				<chemical>RW_Caffeine</chemical>
+				<addictiveness>0.005</addictiveness>
+				<minToleranceToAddict>0.25</minToleranceToAddict>
+				<existingAddictionSeverityOffset>0.20</existingAddictionSeverityOffset>
+				<needLevelOffset>0.9</needLevelOffset>
+				<listOrder>10</listOrder>
+			</li>
+		</comps>	
+	</ThingDef>
+	
+	<HediffDef>
+    <defName>RW_PremiumCoffeeHigh</defName>
+    <hediffClass>HediffWithComps</hediffClass>
+    <label>premium coffee high</label>
+    <description>The rich, high-quality caffeine delivers a potent surge of energy and mental clarity, sharply increasing the pawn's focus and work efficiency. For a limited time, pawns feel more awake, alert, and productive</description>
+    <labelNoun>effects of premium coffee</labelNoun>
+    <defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+    <maxSeverity>1.0</maxSeverity>
+    <isBad>false</isBad>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-2</severityPerDay>
+        <showHoursToRecover>true</showHoursToRecover>
+      </li>
+    </comps>
+      <stages>
+        <li>
+          <label>buzzed</label>
+			<statFactors>
+				<RestFallRateFactor>0.8</RestFallRateFactor>
+			</statFactors>
+            <capMods>
+              <li>
+                <capacity>Consciousness</capacity>
+                <offset>0.1</offset>
+              </li>
+            </capMods>
+          <statOffsets>
+            <WorkSpeedGlobal>0.2</WorkSpeedGlobal>
+		    <GlobalLearningFactor>0.1</GlobalLearningFactor>
+		    <MoveSpeed>0.1</MoveSpeed>
+          </statOffsets>
+        </li>
+        <li>
+          <minSeverity>0.5</minSeverity>
+          <label>energized</label>
+			<statFactors>
+				<RestFallRateFactor>0.6</RestFallRateFactor>
+			</statFactors>
+            <capMods>
+              <li>
+                <capacity>Consciousness</capacity>
+                <offset>0.1</offset>
+              </li>
+            </capMods>
+          <statOffsets>
+            <WorkSpeedGlobal>0.25</WorkSpeedGlobal>
+		    <GlobalLearningFactor>0.2</GlobalLearningFactor>
+			<MoveSpeed>0.15</MoveSpeed>
+          </statOffsets>
+        </li>
+      </stages>
+  </HediffDef>
+
+   <ThoughtDef>
+	  <defName>RW_DrankPremiumCoffee</defName>
+	  <durationDays>0.5</durationDays>
+	  <stackLimit>1</stackLimit>
+	  <stages>
+		  <li>
+			<label>drank premium coffee</label>
+			<description>I drank a really tasty coffee. It was the best coffee i've ever had!</description>
+			<baseMoodEffect>12</baseMoodEffect>
+		  </li>
+	  </stages>
+   </ThoughtDef>
+
+       <!-- Caffeine  -->
+  <ChemicalDef>
+    <defName>RW_Caffeine</defName>
+    <label>caffeine</label>
+    <addictionHediff>RW_CaffeineAddiction</addictionHediff>
+    <toleranceHediff>RW_CaffeineTolerance</toleranceHediff>
+	  <canBinge>false</canBinge>
+    <generateAddictionGenes>false</generateAddictionGenes>
+   <onGeneratedAddictedToleranceChance>0.0</onGeneratedAddictedToleranceChance>
+  </ChemicalDef>
+  
+  <NeedDef ParentName="DrugAddictionNeedBase">
+    <defName>RW_Chemical_Caffeine</defName>
+    <needClass>Need_Chemical</needClass>
+    <label>caffeine</label>
+    <description>Because of a caffeine addiction, this person needs to regularly consume the drug to avoid withdrawal symptoms.</description>
+    <listPriority>100</listPriority>
+  </NeedDef>
+
+  <HediffDef ParentName="DrugToleranceBase">
+    <defName>RW_CaffeineTolerance</defName>
+    <label>caffeine tolerance</label>
+    <description>A built-up tolerance to caffeine. The more severe this tolerance is, the more caffeine it takes to get the same effect.</description>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-0.016</severityPerDay>
+      </li>
+      <li Class="HediffCompProperties_DrugEffectFactor">
+        <chemical>RW_Caffeine</chemical>
+      </li>
+    </comps>
+  </HediffDef>
+  
+  <HediffDef ParentName="AddictionBase">
+    <defName>RW_CaffeineAddiction</defName>
+    <hediffClass>Hediff_Addiction</hediffClass>
+    <label>caffeine addiction</label>
+  <description>A chemical addiction to caffeine. Long-term presence of caffeine has caused neurological adaptations at the cellular level, so the brain can no longer function properly without regular doses of caffeine, withdrawal symptoms will begin. However, extended abstinence will force the brain to adapt back to its normal state, resolving the addiction.</description>
+    <causesNeed>RW_Chemical_Caffeine</causesNeed>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-0.1</severityPerDay>
+    	  <showDaysToRecover>true</showDaysToRecover>
+      </li>
+    </comps>
+    <stages>
+      <li>
+      </li>
+      <li>
+        <label>withdrawal</label>
+        <restFallFactorOffset>0.2</restFallFactorOffset>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <ThoughtDef>
+    <defName>RW_CaffeineWithdrawal</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>RW_CaffeineAddiction</hediff>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <visible>false</visible>
+      </li>
+      <li>
+        <label>caffeine withdrawal</label>
+        <description>I'm tired and unfocused. Why can't I have a cup of coffee?</description>
+        <baseMoodEffect>-6</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+</Defs>

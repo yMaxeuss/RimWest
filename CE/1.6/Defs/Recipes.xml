@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+
+	<!-- == Recipes == -->
+
+	<!-- === Throwing Knife === -->
+	<RecipeDef ParentName="AmmoRecipeBase">
+		<defName>Make_RW_ThrowingKnives</defName>
+		<label>make throwing knife x10</label>
+		<description>Craft 10 throwing knives.</description>
+		<jobString>Making throwing knife.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Steel</li>
+					</thingDefs>
+				</filter>
+				<count>70</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Steel</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<RW_ThrowingKnives>10</RW_ThrowingKnives>
+		</products>
+		<recipeUsers>
+			<li>FueledSmithy</li>
+			<li>ElectricSmithy</li>
+			<li>CraftingSpot</li>
+		</recipeUsers>
+	</RecipeDef>
+	
+</Defs>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Medieval Overhaul</li>
+		</mods>
+
+		
+		<match Class="PatchOperationSequence">
+			<operations>
+				
+		        <li Class="PatchOperationAdd">
+		            <xpath>Defs/ThingDef[defName="RW_Candle"]/comps/li[@Class = "CompProperties_Refuelable"]/fuelFilter/thingDefs</xpath>
+		            <value>
+			              <li>DankPyon_Tallow</li>
+					      <li>DankPyon_Wax</li>
+		            </value>
+	            </li>
+				
+		        <li Class="PatchOperationAdd">
+					<xpath>/Defs/RimWest.ProcessDef[defName = "RW_Wine"]/ingredientFilter/thingDefs</xpath>
+					<value>
+						<li>DankPyon_MustWine</li>
+					</value>
+				</li>
+			
+			    <li Class="PatchOperationReplace">
+					<xpath>/Defs/ThingDef[defName = "RW_StewPot"]/costList/Steel</xpath>
+					<value>
+						<DankPyon_IronIngot>10</DankPyon_IronIngot>
+					</value>
+				</li>
+				
+			</operations>
+		</match>
+	</Operation>
+	
+</Patch>

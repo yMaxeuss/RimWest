@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Brewing Expanded</li>
+		</mods>
+
+		
+		<match Class="PatchOperationSequence">
+			<operations>
+				
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/RecipeDef[defName = "RW_Brew_Coffee"]/fixedIngredientFilter/thingDefs</xpath>
+					<value>
+						<li>VBE_RawCoffee</li>
+					</value>
+				</li>
+				
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/RecipeDef[defName = "RW_Brew_Coffee"]/ingredients/li/filter/thingDefs</xpath>
+					<value>
+						<li>VBE_RawCoffee</li>
+					</value>
+				</li>
+				
+			    <li Class="PatchOperationAdd">
+					<xpath>/Defs/RimWest.ProcessDef[defName = "RW_Whiskey"]/ingredientFilter/thingDefs</xpath>
+					<value>
+						<li>VBE_WhiskeyMash</li>
+					</value>
+				</li>
+				
+			    <li Class="PatchOperationAdd">
+					<xpath>/Defs/RimWest.ProcessDef[defName = "RW_Tequila"]/ingredientFilter/thingDefs</xpath>
+					<value>
+						<li>VBE_TequilaMust</li>
+					</value>
+				</li>
+				
+			</operations>
+		</match>
+	</Operation>
+	
+</Patch>

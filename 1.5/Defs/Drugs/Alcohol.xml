@@ -1,0 +1,510 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+	
+                   <!--  Wine  -->
+	
+<ThingDef ParentName="DrugBase">
+	<defName>RW_Wine</defName>
+	<label>wine</label>
+	<description>A refined and flavorful liquor made from fermented grapes. Increases immunity gain speed.</description>
+	<descriptionHyperlinks>
+		<HediffDef>RW_WineHigh</HediffDef>
+		<HediffDef>AlcoholTolerance</HediffDef>
+		<HediffDef>AlcoholAddiction</HediffDef>
+	</descriptionHyperlinks>
+	<possessionCount>6</possessionCount>
+	<graphicData>
+		<texPath>Things/Item/Drug/Wine</texPath>
+		<graphicClass>Graphic_StackCount</graphicClass>
+	</graphicData>
+	<equippedAngleOffset>-150</equippedAngleOffset>
+	<rotatable>false</rotatable>
+	<stackLimit>25</stackLimit>
+	<statBases>
+		<DeteriorationRate>0.5</DeteriorationRate>
+		<MarketValue>25</MarketValue>
+		<Mass>0.3</Mass>
+		<Flammability>0.5</Flammability>
+		<Nutrition>0.1</Nutrition>
+	</statBases>
+	<ingestible>
+		<foodType>Fluid, Processed, Liquor</foodType>
+		<joyKind>Chemical</joyKind>
+		<joy>0.18</joy>
+		<nurseable>true</nurseable>
+		<drugCategory>Social</drugCategory>
+		<ingestSound>Ingest_Beer</ingestSound>
+		<ingestHoldOffsetStanding>
+			<northDefault>
+				<offset>(0.18,0,0)</offset>
+			</northDefault>
+		</ingestHoldOffsetStanding>
+		<ingestCommandString>Drink {0}</ingestCommandString>
+		<ingestReportString>Drinking {0}.</ingestReportString>
+		<chairSearchRadius>25</chairSearchRadius>
+		<canAutoSelectAsFoodForCaravan>false</canAutoSelectAsFoodForCaravan>
+		<tableDesired>false</tableDesired>
+		<outcomeDoers>
+			<li Class="IngestionOutcomeDoer_GiveHediff">
+				<hediffDef>RW_WineHigh</hediffDef>
+				<severity>0.15</severity>
+			</li>
+			<li Class="IngestionOutcomeDoer_GiveHediff">
+				<hediffDef>AlcoholHigh</hediffDef>
+				<severity>0.15</severity>
+				<toleranceChemical>Alcohol</toleranceChemical>
+			</li>
+			<li Class="IngestionOutcomeDoer_GiveHediff">
+				<hediffDef>AlcoholTolerance</hediffDef>
+				<toleranceChemical>Alcohol</toleranceChemical>
+				<severity>0.024</severity>
+				<divideByBodySize>true</divideByBodySize>
+				<multiplyByGeneToleranceFactors>true</multiplyByGeneToleranceFactors>
+			</li>
+		</outcomeDoers>
+	</ingestible>
+	<equipmentType>Primary</equipmentType>
+	<techLevel>Neolithic</techLevel>
+	<comps>
+		<li Class="CompProperties_Drug">
+			<chemical>Alcohol</chemical>
+			<addictiveness>0.05</addictiveness>
+			<minToleranceToAddict>0.25</minToleranceToAddict>
+			<existingAddictionSeverityOffset>0.20</existingAddictionSeverityOffset>
+			<needLevelOffset>1</needLevelOffset>
+			<listOrder>10</listOrder>
+		</li>
+		<li>
+			<compClass>CompEquippable</compClass>
+		</li>
+	</comps>
+	<weaponClasses>
+		<li>Melee</li>
+		<li>MeleeBlunt</li>
+	</weaponClasses>
+	<tools>
+		<li>
+			<label>bottle</label>
+			<capacities>
+				<li>Blunt</li>
+			</capacities>
+			<power>9</power>
+			<cooldownTime>2</cooldownTime>
+		</li>
+		<li>
+			<label>neck</label>
+			<capacities>
+				<li>Poke</li>
+			</capacities>
+			<power>9</power>
+			<cooldownTime>2</cooldownTime>
+		</li>
+	</tools>
+	<allowedArchonexusCount>50</allowedArchonexusCount>
+</ThingDef>
+	
+<HediffDef>
+	<defName>RW_WineHigh</defName>
+	<label>wine high</label>
+	<labelNoun>a wine high</labelNoun>
+	<description>Drank some normal wine, it provides a small boost to the immune system, helping the colonist recover from illness slightly faster.</description>
+	<hediffClass>Hediff_Alcohol</hediffClass>
+	<defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+	<scenarioCanAdd>true</scenarioCanAdd>
+	<isBad>false</isBad>
+	<comps>
+
+		<li Class="HediffCompProperties_SeverityPerDay">
+			<severityPerDay>-0.75</severityPerDay>
+			<showHoursToRecover>true</showHoursToRecover>
+		</li>
+	</comps>
+	<stages>
+		<li>
+			<statOffsets>
+				<ImmunityGainSpeed>+0.05</ImmunityGainSpeed>
+			</statOffsets>
+		</li>
+	</stages>
+</HediffDef>
+	
+	        <!--  Aged Wine  -->
+	
+<ThingDef ParentName="DrugBase">
+	<defName>RW_AgedWine</defName>
+	<label>aged wine</label>
+	<description>A fine, carefully aged wine with deep, rich flavors that offer more than just a pleasant taste. Its rich taste boosts morale, strengthens social bonds and improves immunity gain speed.</description>
+	<descriptionHyperlinks>
+		<HediffDef>RW_AgedWineHigh</HediffDef>
+		<HediffDef>AlcoholTolerance</HediffDef>
+		<HediffDef>AlcoholAddiction</HediffDef>
+	</descriptionHyperlinks>
+	<graphicData>
+		<texPath>Things/Item/Drug/AgedWine</texPath>
+		<graphicClass>Graphic_StackCount</graphicClass>
+	</graphicData>
+	<equippedAngleOffset>-150</equippedAngleOffset>
+	<rotatable>false</rotatable>
+	<stackLimit>25</stackLimit>
+	<generateCommonality>0.1</generateCommonality>
+	<statBases>
+		<Flammability>0.5</Flammability>
+		<Nutrition>0.08</Nutrition>
+		<DeteriorationRate>0.5</DeteriorationRate>
+		<MarketValue>60</MarketValue>
+		<Mass>0.3</Mass>
+	</statBases>
+	<ingestible>
+		<joyKind>Chemical</joyKind>
+		<foodType>Fluid, Processed, Liquor</foodType>
+		<joy>0.4</joy>
+		<tasteThought>RW_DrankAgedWine</tasteThought>
+		<nurseable>true</nurseable>
+		<drugCategory>Social</drugCategory>
+		<ingestSound>Ingest_Beer</ingestSound>
+		<ingestHoldOffsetStanding>
+			<northDefault>
+				<offset>(0.18,0,0)</offset>
+			</northDefault>
+		</ingestHoldOffsetStanding>
+		<ingestCommandString>Drink {0}</ingestCommandString>
+		<ingestReportString>Drinking {0}.</ingestReportString>
+		<chairSearchRadius>25</chairSearchRadius>
+		<outcomeDoers>
+			<li Class="IngestionOutcomeDoer_GiveHediff">
+				<hediffDef>RW_AgedWineHigh</hediffDef>
+				<severity>0.4</severity>
+				<toleranceChemical>Alcohol</toleranceChemical>
+			</li>
+			<li Class="IngestionOutcomeDoer_GiveHediff">
+				<hediffDef>AlcoholHigh</hediffDef>
+				<severity>0.4</severity>
+				<toleranceChemical>Alcohol</toleranceChemical>
+			</li>
+			<li Class="IngestionOutcomeDoer_GiveHediff">
+				<hediffDef>AlcoholTolerance</hediffDef>
+				<severity>0.08</severity>
+				<divideByBodySize>true</divideByBodySize>
+			</li>
+		</outcomeDoers>
+	</ingestible>
+	<equipmentType>Primary</equipmentType>
+	<techLevel>Medieval</techLevel>
+	<comps>
+		<li Class="CompProperties_Drug">
+			<chemical>Alcohol</chemical>
+			<addictiveness>0.07</addictiveness>
+			<minToleranceToAddict>0.25</minToleranceToAddict>
+			<existingAddictionSeverityOffset>0.20</existingAddictionSeverityOffset>
+			<needLevelOffset>1</needLevelOffset>
+			<listOrder>10</listOrder>
+		</li>
+         <li>
+            <compClass>CompQuality</compClass>
+        </li>
+		<li>
+			<compClass>CompEquippable</compClass>
+		</li>
+	</comps>
+	<tools>
+		<li>
+			<label>bottle</label>
+			<capacities>
+				<li>Blunt</li>
+			</capacities>
+			<power>9</power>
+			<cooldownTime>2</cooldownTime>
+		</li>
+		<li>
+			<label>neck</label>
+			<capacities>
+				<li>Poke</li>
+			</capacities>
+			<power>9</power>
+			<cooldownTime>2</cooldownTime>
+		</li>
+	</tools>
+</ThingDef>
+
+<HediffDef>
+	<defName>RW_AgedWineHigh</defName>
+	<label>aged wine high</label>
+	<labelNoun>a aged wine high</labelNoun>
+	<description>The smooth, rich flavors boost mood and enhance charisma, improving social interactions. The wine also provides a slight boost to the immune system, speeding up recovery and increasing immunity gain speed.</description>
+	<hediffClass>Hediff_Alcohol</hediffClass>
+	<defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+	<scenarioCanAdd>true</scenarioCanAdd>
+	<isBad>false</isBad>
+	<comps>
+
+		<li Class="HediffCompProperties_SeverityPerDay">
+			<severityPerDay>-0.75</severityPerDay>
+			<showHoursToRecover>true</showHoursToRecover>
+		</li>
+	</comps>
+	<stages>
+		<li>
+			<statOffsets>
+				<ImmunityGainSpeed>0.15</ImmunityGainSpeed>
+				<TradePriceImprovement>0.25</TradePriceImprovement>
+				<SocialImpact>0.2</SocialImpact>
+			</statOffsets>
+		</li>
+	</stages>
+</HediffDef>
+
+<ThoughtDef>
+	<defName>RW_DrankAgedWine</defName>
+	<durationDays>0.5</durationDays>
+	<stackLimit>1</stackLimit>
+	<stages>
+		<li>
+			<label>drank aged wine</label>
+			<description>I drank a really tasty aged wine. Yum!</description>
+			<baseMoodEffect>15</baseMoodEffect>
+		</li>
+	</stages>
+</ThoughtDef>
+
+        	<!--   Whiskey   -->
+	<ThingDef ParentName="DrugBase">
+		<defName>RW_Whiskey</defName>
+		<label>whiskey</label>
+		<description>A strong, distilled spirit that sharpens the mind and enhances performance. It provides a temporary boost to energy, increasing global work speed.</description>
+		<descriptionHyperlinks>
+			<HediffDef>RW_WhiskeyHigh</HediffDef>
+			<HediffDef>AlcoholTolerance</HediffDef>
+			<HediffDef>AlcoholAddiction</HediffDef>
+		</descriptionHyperlinks>
+		<possessionCount>6</possessionCount>
+		<graphicData>
+			<texPath>Things/Item/Drug/Whiskey</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<equippedAngleOffset>-150</equippedAngleOffset>
+		<rotatable>false</rotatable>
+		<stackLimit>25</stackLimit>
+		<statBases>
+			<DeteriorationRate>0.5</DeteriorationRate>
+			<MarketValue>18</MarketValue>
+			<Mass>0.3</Mass>
+			<Flammability>0.5</Flammability>
+			<Nutrition>0.08</Nutrition>
+		</statBases>
+		<ingestible>
+			<foodType>Fluid, Processed, Liquor</foodType>
+			<joyKind>Chemical</joyKind>
+			<joy>0.18</joy>
+			<nurseable>true</nurseable>
+			<drugCategory>Social</drugCategory>
+			<ingestSound>Ingest_Beer</ingestSound>
+			<ingestHoldOffsetStanding>
+				<northDefault>
+					<offset>(0.18,0,0)</offset>
+				</northDefault>
+			</ingestHoldOffsetStanding>
+			<ingestCommandString>Drink {0}</ingestCommandString>
+			<ingestReportString>Drinking {0}.</ingestReportString>
+			<chairSearchRadius>25</chairSearchRadius>
+			<outcomeDoers>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>AlcoholHigh</hediffDef>
+					<severity>0.2</severity>
+					<toleranceChemical>Alcohol</toleranceChemical>
+				</li>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>RW_WhiskeyHigh</hediffDef>
+					<severity>0.2</severity>
+
+				</li>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>AlcoholTolerance</hediffDef>
+					<severity>0.032</severity>
+					<divideByBodySize>true</divideByBodySize>
+					<multiplyByGeneToleranceFactors>true</multiplyByGeneToleranceFactors>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+		<equipmentType>Primary</equipmentType>
+		<techLevel>Neolithic</techLevel>
+		<comps>
+			<li Class="CompProperties_Drug">
+				<chemical>Alcohol</chemical>
+				<addictiveness>0.05</addictiveness>
+				<minToleranceToAddict>0.25</minToleranceToAddict>
+				<existingAddictionSeverityOffset>0.20</existingAddictionSeverityOffset>
+				<needLevelOffset>1</needLevelOffset>
+				<listOrder>10</listOrder>
+			</li>
+			<li>
+				<compClass>CompEquippable</compClass>
+			</li>
+		</comps>
+		<tools>
+			<li>
+				<label>bottle</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+			<li>
+				<label>neck</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+
+	<HediffDef>
+		<defName>RW_WhiskeyHigh</defName>
+		<label>whiskey high</label>
+		<labelNoun>a whiskey high</labelNoun>
+		<description>The warm burn of the alcohol sharpens focus, clears the mind, and fuels the body with a burst of energy. For a limited time, work is done at a faster pace.</description>
+		<hediffClass>Hediff_Alcohol</hediffClass>
+		<defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+		<scenarioCanAdd>true</scenarioCanAdd>
+		<isBad>false</isBad>
+		<comps>
+
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-0.75</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<statOffsets>
+					<WorkSpeedGlobal>0.15</WorkSpeedGlobal>
+				</statOffsets>
+			</li>
+
+		</stages>
+	</HediffDef>
+	
+	       <!-- Tequila  -->
+
+	<ThingDef ParentName="DrugBase">
+		<defName>RW_Tequila</defName>
+		<label>tequila</label>
+		<description>A vibrant and spirited beverage distilled from fermented agave plant. It is good to drink one before a duel. Increases shooting speed.</description>
+		<descriptionHyperlinks>
+			<HediffDef>RW_TequilaHigh</HediffDef>
+			<HediffDef>AlcoholTolerance</HediffDef>
+			<HediffDef>AlcoholAddiction</HediffDef>
+		</descriptionHyperlinks>
+		<possessionCount>6</possessionCount>
+		<graphicData>
+			<texPath>Things/Item/Drug/Tequila</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<equippedAngleOffset>-150</equippedAngleOffset>
+		<rotatable>false</rotatable>
+		<stackLimit>25</stackLimit>
+		<statBases>
+			<DeteriorationRate>0.5</DeteriorationRate>
+			<MarketValue>18</MarketValue>
+			<Mass>0.3</Mass>
+			<Flammability>0.5</Flammability>
+			<Nutrition>0.08</Nutrition>
+		</statBases>
+		<ingestible>
+			<foodType>Fluid, Processed, Liquor</foodType>
+			<joyKind>Chemical</joyKind>
+			<joy>0.17</joy>
+			<nurseable>true</nurseable>
+			<drugCategory>Social</drugCategory>
+			<ingestSound>Ingest_Beer</ingestSound>
+			<ingestHoldOffsetStanding>
+				<northDefault>
+					<offset>(0.18,0,0)</offset>
+				</northDefault>
+			</ingestHoldOffsetStanding>
+			<ingestCommandString>Drink {0}</ingestCommandString>
+			<ingestReportString>Drinking {0}.</ingestReportString>
+			<chairSearchRadius>25</chairSearchRadius>
+			<outcomeDoers>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>AlcoholHigh</hediffDef>
+					<severity>0.2</severity>
+					<toleranceChemical>Alcohol</toleranceChemical>
+				</li>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>RW_TequilaHigh</hediffDef>
+					<severity>0.2</severity>
+
+				</li>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>AlcoholTolerance</hediffDef>
+					<severity>0.032</severity>
+					<divideByBodySize>true</divideByBodySize>
+					<multiplyByGeneToleranceFactors>true</multiplyByGeneToleranceFactors>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+		<equipmentType>Primary</equipmentType>
+		<techLevel>Neolithic</techLevel>
+		<comps>
+			<li Class="CompProperties_Drug">
+				<chemical>Alcohol</chemical>
+				<addictiveness>0.05</addictiveness>
+				<minToleranceToAddict>0.25</minToleranceToAddict>
+				<existingAddictionSeverityOffset>0.20</existingAddictionSeverityOffset>
+				<needLevelOffset>1</needLevelOffset>
+				<listOrder>10</listOrder>
+			</li>
+			<li>
+				<compClass>CompEquippable</compClass>
+			</li>
+		</comps>
+		<tools>
+			<li>
+				<label>bottle</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+			<li>
+				<label>neck</label>
+				<capacities>
+					<li>Poke</li>
+				</capacities>
+				<power>9</power>
+				<cooldownTime>2</cooldownTime>
+			</li>
+		</tools>
+	</ThingDef>
+
+	<HediffDef>
+		<defName>RW_TequilaHigh</defName>
+		<label>tequila high</label>
+		<labelNoun>a tequila high</labelNoun>
+		<description>Drank some tequila. Increases shooting speed by 10%.</description>
+		<hediffClass>Hediff_Alcohol</hediffClass>
+		<defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+		<scenarioCanAdd>true</scenarioCanAdd>
+		<isBad>false</isBad>
+		<comps>
+
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-0.75</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<statOffsets>
+					<RangedCooldownFactor>-0.1</RangedCooldownFactor>
+					<AimingDelayFactor>-0.1</AimingDelayFactor>
+				</statOffsets>
+			</li>
+
+		</stages>
+	</HediffDef>
+</Defs>

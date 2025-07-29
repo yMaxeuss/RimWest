@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<ThingDef ParentName="PlantBase" Name="GrapeBase" Abstract="True">
+		<graphicData>
+			<texPath>Things/Plants/Grape_Plant/GrapePlant/RW_GrapePlant</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		    <drawSize>(1.5,1.5)</drawSize>
+		</graphicData>
+		<selectable>true</selectable>
+		<pathCost>20</pathCost>
+		<statBases>
+			<MaxHitPoints>85</MaxHitPoints>
+			<Nutrition>0.20</Nutrition>
+		</statBases>
+		<plant>
+			<immatureGraphicPath>Things/Plants/Grape_Plant/GrapePlant/RW_GrapePlantInmature</immatureGraphicPath>
+			<growDays>19</growDays>
+			<dieIfLeafless>false</dieIfLeafless>
+			<harvestAfterGrowth>0.5</harvestAfterGrowth>
+			<harvestTag>Standard</harvestTag>
+			<harvestedThingDef>RW_RawGrape</harvestedThingDef>
+			<harvestYield>12</harvestYield>
+			<topWindExposure>0.1</topWindExposure>
+			<wildOrder>2</wildOrder>
+			<allowAutoCut>false</allowAutoCut>
+		</plant>
+	</ThingDef>
+
+	<ThingDef ParentName="GrapeBase">
+		<defName>RW_Plant_Grape</defName>
+		<label>grape plant</label>
+		<description>A grape plant that produces clusters of grapes, which can be harvested to make wine or enjoyed as a tasty snack.</description>
+		<plant>
+			<sowMinSkill>6</sowMinSkill>
+			<sowTags>
+				<li>Ground</li>
+			</sowTags>
+			<purpose>Food</purpose>
+		</plant>
+	</ThingDef>
+	
+	<ThingDef ParentName="PlantFoodRawBase">
+		<defName>RW_RawGrape</defName>
+		<label>grapes</label>
+		<description>Grapes. Nice to eat, even when raw. Used to make Wine.</description>
+		<graphicData>
+			<texPath>Things/Plants/Grape_Plant/RW_Grapes</texPath>
+		</graphicData>
+		<statBases>
+			<MarketValue>1.2</MarketValue>
+			<Mass>0.027</Mass>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Rottable">
+				<daysToRotStart>14</daysToRotStart>
+				<rotDestroys>true</rotDestroys>
+			</li>
+		</comps>
+		<ingestible>
+			<preferability>RawTasty</preferability>
+			<foodType>VegetableOrFruit</foodType>
+		</ingestible>
+	</ThingDef>
+</Defs>

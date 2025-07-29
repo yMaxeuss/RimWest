@@ -1,0 +1,94 @@
+<Defs>
+	
+    <SoundDef>
+        <defName>RW_Model3Shot</defName>
+        <context>MapOnly</context>
+        <maxSimultaneous>1</maxSimultaneous>
+        <subSounds>
+            <li>
+                <muteWhenPaused>false</muteWhenPaused>
+                <grains>
+                    <li Class="AudioGrain_Clip">
+                        <clipPath>RW/RW_Model3</clipPath>
+                    </li>
+                </grains>
+                <volumeRange>65</volumeRange>
+				<distRange>10~40</distRange>
+            </li>
+        </subSounds>
+    </SoundDef>
+
+	<SoundDef>
+		<defName>RW_ColtNavyRevolverShot</defName>
+		<context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<subSounds>
+			<li>
+				<muteWhenPaused>false</muteWhenPaused>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>RW/RW_ColtNavyRevolver</clipPath>
+					</li>
+				</grains>
+				<volumeRange>65</volumeRange>
+				<distRange>10~40</distRange>
+			</li>
+		</subSounds>
+	</SoundDef>
+
+	<SoundDef>
+		<defName>RW_WinchesterRifleShot</defName>
+		<context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<subSounds>
+			<li>
+				<muteWhenPaused>false</muteWhenPaused>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>RW/RW_WinchesterRifle</clipPath>
+					</li>
+				</grains>
+				<volumeRange>85</volumeRange>
+				<distRange>10~65</distRange>
+			</li>
+		</subSounds>
+	</SoundDef>
+
+	<SoundDef>
+		<defName>RW_SharpsRifleShot</defName>
+		<context>MapOnly</context>
+		<maxSimultaneous>1</maxSimultaneous>
+		<subSounds>
+			<li>
+				<muteWhenPaused>false</muteWhenPaused>
+				<grains>
+					<li Class="AudioGrain_Clip">
+						<clipPath>RW/RW_SharpsRifle</clipPath>
+					</li>
+				</grains>
+				<volumeRange>85</volumeRange>
+				<distRange>10~75</distRange>
+			</li>
+		</subSounds>
+	</SoundDef>
+
+	
+	<SoundDef>
+        <defName>RW_CoachGunShot</defName>
+        <context>MapOnly</context>
+        <maxSimultaneous>1</maxSimultaneous>
+        <subSounds>
+            <li>
+                <muteWhenPaused>false</muteWhenPaused>
+                <grains>
+                    <li Class="AudioGrain_Clip">
+                        <clipPath>RW/RW_CoachGun</clipPath>
+                    </li>
+                </grains>
+                <volumeRange>65</volumeRange>
+                <distRange>10~65</distRange>
+            </li>
+        </subSounds>
+    </SoundDef>
+
+</Defs>

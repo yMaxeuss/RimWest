@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<ThingDef ParentName="MealCooked">
+		<defName>RW_StewSimple</defName>
+		<label>simple stew</label>
+		<description>A simple stew cooked from a few ingredients.</description>
+		<graphicData>
+			<texPath>Things/Item/Meal/StewSimple</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<MarketValue>14</MarketValue>
+			<Nutrition>0.9</Nutrition>
+		</statBases>
+		<ingestible>
+			<preferability>MealSimple</preferability>
+			<ingestEffect>EatVegetarian</ingestEffect>
+			<ingestSound>Ingest_Drink</ingestSound>
+		    <outcomeDoers>
+		    	<li Class="IngestionOutcomeDoer_GiveHediff">
+				  <hediffDef>RW_AteSimpleStew</hediffDef>
+				  <severity>0.25</severity>
+			    </li>
+		    </outcomeDoers>
+		</ingestible>
+	</ThingDef>
+
+	<ThingDef ParentName="MealCooked">
+		<defName>RW_StewFine</defName>
+		<label>fine stew</label>
+		<description>A complex stew assembled with care from a wide selection of ingredients.</description>
+		<graphicData>
+			<texPath>Things/Item/Meal/StewFine</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<MarketValue>18</MarketValue>
+			<Nutrition>0.9</Nutrition>
+		</statBases>
+		<ingestible>
+			<preferability>MealFine</preferability>
+			<ingestEffect>EatVegetarian</ingestEffect>
+			<tasteThought>AteFineMeal</tasteThought>
+			<ingestSound>Ingest_Drink</ingestSound>
+			<outcomeDoers>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>RW_AteFineStew</hediffDef>
+					<severity>0.25</severity>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+	</ThingDef>
+
+	<ThingDef ParentName="MealCooked">
+		<defName>RW_StewLavish</defName>
+		<label>lavish stew</label>
+		<description>A masterpiece of the culinary arts, this stew nourishes the body, mind, and soul.</description>
+		<graphicData>
+			<texPath>Things/Item/Meal/StewLavish</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<statBases>
+			<MarketValue>38</MarketValue>
+			<Nutrition>1</Nutrition>
+		</statBases>
+		<ingestible>
+			<preferability>MealLavish</preferability>
+			<ingestEffect>EatVegetarian</ingestEffect>
+			<tasteThought>AteLavishMeal</tasteThought>
+			<ingestSound>Ingest_Drink</ingestSound>
+			<outcomeDoers>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>RW_AteLavishStew</hediffDef>
+					<severity>0.25</severity>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+	</ThingDef>
+ 
+	    <!--   HediffDefs  -->
+	
+	<HediffDef>
+		<defName>RW_AteSimpleStew</defName>
+		<label>ate simple stew</label>
+		<makesSickThought>false</makesSickThought>
+		<description>Ate some simple stew. Very Filling! It lowers hunger rate by 10%.</description>
+		<tendable>false</tendable>
+		<isBad>false</isBad>
+		<defaultLabelColor>(1,0.5,0)</defaultLabelColor>
+		<hediffClass>HediffWithComps</hediffClass>
+		<initialSeverity>0</initialSeverity>
+		<maxSeverity>0.25</maxSeverity>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-0.5</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+		   <li Class="HediffCompProperties_RemoveIfOtherHediff">
+			   <hediffs>
+				   <li>RW_AteFineStew</li>
+				   <li>RW_AteLavishStew</li>
+			   </hediffs>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<hungerRateFactorOffset>-0.10</hungerRateFactorOffset>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<HediffDef>
+		<defName>RW_AteFineStew</defName>
+		<label>ate fine stew</label>
+		<makesSickThought>false</makesSickThought>
+		<description>Ate some fine stew. Very Filling! It lowers hunger rate by 20%.</description>
+		<tendable>false</tendable>
+		<isBad>false</isBad>
+		<defaultLabelColor>(1,0.5,0)</defaultLabelColor>
+		<hediffClass>HediffWithComps</hediffClass>
+		<initialSeverity>0</initialSeverity>
+		<maxSeverity>0.25</maxSeverity>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-0.50</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+		<li Class="HediffCompProperties_RemoveIfOtherHediff">
+			   <hediffs>
+				   <li>RW_AteSimpleStew</li>
+				   <li>RW_AteLavishStew</li>
+			   </hediffs>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<hungerRateFactorOffset>-0.20</hungerRateFactorOffset>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<HediffDef>
+		<defName>RW_AteLavishStew</defName>
+		<label>ate lavish stew</label>
+		<makesSickThought>false</makesSickThought>
+		<description>Ate some lavish stew. Very Filling! It lowers hunger rate by 30%.</description>
+		<tendable>false</tendable>
+		<isBad>false</isBad>
+		<defaultLabelColor>(1,0.5,0)</defaultLabelColor>
+		<hediffClass>HediffWithComps</hediffClass>
+		<initialSeverity>0</initialSeverity>
+		<maxSeverity>0.25</maxSeverity>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-0.5</severityPerDay>
+				<showHoursToRecover>true</showHoursToRecover>
+			</li>
+		<li Class="HediffCompProperties_RemoveIfOtherHediff">
+			   <hediffs>
+				   <li>RW_AteFineStew</li>
+				   <li>RW_AteSimpleStew</li>
+			   </hediffs>
+			</li>
+		</comps>
+		<stages>
+			<li>
+				<hungerRateFactorOffset>-0.30</hungerRateFactorOffset>
+			</li>
+		</stages>
+	</HediffDef>
+
+</Defs>
